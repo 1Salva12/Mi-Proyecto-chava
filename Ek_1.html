@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Carta para Ek</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #f8c8dc;
+            overflow: hidden;
+        }
+        .carta-container {
+            position: relative;
+            text-align: center;
+        }
+        .carta {
+            width: 300px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            position: relative;
+            padding: 20px;
+            transform: scale(1);
+            transition: transform 0.6s ease;
+            overflow: hidden;
+            display: inline-block;
+            text-align: left;
+        }
+        .carta.abierta {
+            transform: scale(1.1);
+        }
+        .corazon {
+            font-size: 50px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 0;
+            color: inherit;
+            display: inline-block;
+        }
+        .mensaje {
+            margin-top: 20px;
+            font-family: 'Arial', sans-serif;
+            color: #d63384;
+            font-size: 16px;
+            line-height: 1.5;
+            display: none;
+        }
+        .carta.abierta .mensaje {
+            display: block;
+        }
+        .corazon-flotante {
+            position: absolute;
+            color: #ff4d6d;
+            animation: flotar 5s linear infinite;
+        }
+        @keyframes flotar {
+            0% {
+                transform: translateY(0) translateX(0);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) translateX(calc(-50px + 100px * random()));
+                opacity: 0;
+            }
+        }
+        .corazon-flotante-izquierda {
+            left: -60px;
+            top: 50%;
+        }
+        .corazon-flotante-derecha {
+            right: -60px;
+            top: 50%;
+        }
+        .corazon-flotante-arriba {
+            top: -60px;
+            left: 50%;
+        }
+        .corazon-flotante-abajo {
+            bottom: -60px;
+            left: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div class="carta-container">
+        <div class="carta" id="carta">
+            <!-- El corazón al principio está visible -->
+            <button class="corazon" onclick="abrirCarta()">❤️</button>
+            <!-- La información se muestra solo al hacer clic -->
+            <div class="mensaje" id="mensaje">
+                <h2>Para Ek 💌</h2>
+                <p>Desde que entraste en mi vida, cada momento es más especial. 🌹</p>
+                <p>Gracias por compartir este instante conmigo. Eres única. ✨</p>
+                <p>Eres la persona que me motiva a venir a la escuela y dar lo mejor de mi. ❤️🌹</p>
+                <en>TE QUIERO EN MI VIDA POR SIEMPRE </en>
+            
+
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function abrirCarta() {
+            const carta = document.getElementById('carta');
+            const mensaje = document.getElementById('mensaje');
+            carta.classList.toggle('abierta');
+            mensaje.style.display = mensaje.style.display === 'block' ? 'none' : 'block';
+        }
+
+        function crearCorazones() {
+            const posiciones = [
+                'corazon-flotante-izquierda',
+                'corazon-flotante-derecha',
+                'corazon-flotante-arriba',
+                'corazon-flotante-abajo'
+            ];
+
+            for (let i = 0; i < 5; i++) {
+                const corazon = document.createElement('div');
+                corazon.className = 'corazon-flotante ' + posiciones[i % 4];
+                corazon.innerHTML = '❤️';
+                corazon.style.animationDuration = 3 + Math.random() * 3 + 's';
+                document.body.appendChild(corazon);
+
+                setTimeout(() => corazon.remove(), 6000);
+            }
+        }
+
+        setInterval(crearCorazones, 1000);
+    </script>
+</body>
+</html>
+
