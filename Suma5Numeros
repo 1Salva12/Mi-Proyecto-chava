@@ -1,0 +1,20 @@
+import java.util.Scanner;
+
+public class Suma5Numeros {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        double suma = 0;
+        
+        System.out.println("Suma de 5 números");
+        System.out.println("-----------------");
+        
+        for (int i = 1; i <= 5; i++) {
+            System.out.print("Ingrese el número " + i + ": ");
+            double numero = scanner.nextDouble();
+            suma += numero;
+        }
+        
+        System.out.println("\nLa suma de los 5 números es: " + suma);
+        scanner.close();
+    }
+}
