@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# Solicita al usuario que ingrese su nombre
+read -p "Por favor, ingresa tu nombre: " nombre
+
+# Imprime un saludo personalizado
+echo "¡Hola, $nombre! Bienvenido al mundo de los scripts de Linux."
+echo "La fecha y hora actual es: $(date)" # Muestra la fecha y hora actual
