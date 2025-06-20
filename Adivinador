@@ -1,0 +1,27 @@
+import random
+
+def adivina_el_numero():
+    numero_secreto = random.randint(1, 100)
+    intentos = 0
+    adivinado = False
+    
+    print("¡Bienvenido a 'Adivina el número'!")
+    print("He elegido un número entre 1 y 100. ¿Puedes adivinarlo?")
+    
+    while not adivinado:
+        try:
+            intento = int(input("Introduce tu intento: "))
+            intentos += 1
+            
+            if intento < numero_secreto:
+                print("El número es mayor. ¡Sigue intentando!")
+            elif intento > numero_secreto:
+                print("El número es menor. ¡Sigue intentando!")
+            else:
+                adivinado = True
+                print(f"¡Felicidades! Adivinaste el número en {intentos} intentos.")
+        except ValueError:
+            print("Por favor, introduce un número válido.")
+
+if __name__ == "__main__":
+    adivina_el_numero()
