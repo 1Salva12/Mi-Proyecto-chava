@@ -1,5 +1,5 @@
 import java.util.Random;
-
+// hola 
 public class GeneradorContrasena {
     public static void main(String[] args) {
         String caracteres = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%&*";
